@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For You ❤️</title>
-    <meta name="description" content="A special collection of memories, just for you.">
+    <meta name="description" content="A love story told in moments — just for you.">
     <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&family=Dancing+Script:wght@400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&family=Dancing+Script:wght@400;700&family=Great+Vibes&display=swap"
         rel="stylesheet">
     <style>
         /* ===== RESET & BASE ===== */
@@ -289,7 +289,7 @@
             right: 0;
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
             padding: 20px 32px;
             z-index: 10;
         }
@@ -304,25 +304,6 @@
         .memory-counter span {
             color: var(--pink-soft);
             font-weight: 500;
-        }
-
-        .shuffle-btn {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--text-secondary);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-family: 'Inter', sans-serif;
-            font-size: 13px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-        }
-
-        .shuffle-btn:hover {
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--text-primary);
-            border-color: rgba(255, 107, 157, 0.3);
         }
 
         /* Photo Card */
@@ -488,43 +469,246 @@
             box-shadow: 0 0 12px rgba(255, 45, 120, 0.4);
         }
 
-        /* ===== FINAL SCREEN ===== */
-        #final-screen {
-            background: radial-gradient(ellipse at 50% 50%, rgba(233, 30, 99, 0.15) 0%, transparent 60%),
+        /* ===== PROPOSAL SCREEN ===== */
+        #proposal-screen {
+            background: radial-gradient(ellipse at 50% 30%, rgba(233, 30, 99, 0.2) 0%, transparent 50%),
+                radial-gradient(ellipse at 30% 70%, rgba(123, 77, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 70%, rgba(244, 197, 66, 0.1) 0%, transparent 50%),
                 var(--bg-deep);
+            overflow: hidden;
         }
 
-        .final-content {
+        .proposal-content {
             text-align: center;
-            max-width: 520px;
+            max-width: 600px;
             padding: 32px;
             z-index: 2;
+            opacity: 0;
+            animation: proposalReveal 2s ease-out 0.5s forwards;
         }
 
-        .final-heart {
-            font-size: 80px;
+        @keyframes proposalReveal {
+            0% {
+                opacity: 0;
+                transform: translateY(40px) scale(0.9);
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .proposal-ring {
+            font-size: 100px;
             display: inline-block;
-            animation: heartbeat 1.5s ease-in-out infinite;
-            margin-bottom: 32px;
-            filter: drop-shadow(0 0 40px rgba(255, 45, 120, 0.6));
-        }
-
-        .final-title {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(32px, 6vw, 48px);
-            font-weight: 700;
-            color: var(--text-primary);
+            animation: ringFloat 3s ease-in-out infinite;
             margin-bottom: 24px;
-            line-height: 1.3;
+            filter: drop-shadow(0 0 50px rgba(244, 197, 66, 0.6));
         }
 
-        .final-message {
+        @keyframes ringFloat {
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(-5deg);
+            }
+
+            50% {
+                transform: translateY(-15px) rotate(5deg);
+            }
+        }
+
+        .proposal-pretext {
+            font-family: 'Dancing Script', cursive;
+            font-size: 24px;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            opacity: 0;
+            animation: fadeSlideUp 1s ease-out 1.5s forwards;
+        }
+
+        .proposal-question {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(38px, 8vw, 64px);
+            background: linear-gradient(135deg, var(--gold), var(--pink-soft), var(--purple-soft), var(--gold));
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 3s ease-in-out infinite;
+            margin-bottom: 20px;
+            line-height: 1.3;
+            opacity: 0;
+            animation: proposalTextReveal 1.5s ease-out 2s forwards, gradientShift 3s ease-in-out infinite;
+        }
+
+        @keyframes proposalTextReveal {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+                filter: blur(10px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+                filter: blur(0);
+            }
+        }
+
+        .proposal-message {
             font-family: 'Playfair Display', serif;
             font-style: italic;
-            font-size: 18px;
+            font-size: 17px;
             color: var(--text-accent);
             line-height: 1.8;
-            margin-bottom: 40px;
+            margin-bottom: 48px;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            animation: fadeSlideUp 1s ease-out 3s forwards;
+        }
+
+        .proposal-buttons {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeSlideUp 1s ease-out 3.5s forwards;
+            position: relative;
+            min-height: 80px;
+        }
+
+        .yes-btn {
+            padding: 20px 64px;
+            border: none;
+            border-radius: 60px;
+            background: linear-gradient(135deg, var(--pink-glow), #ff6b9d, var(--purple-deep));
+            background-size: 200% 200%;
+            animation: gradientShift 2s ease-in-out infinite;
+            color: white;
+            font-family: 'Dancing Script', cursive;
+            font-size: 28px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 32px rgba(255, 45, 120, 0.4),
+                0 0 60px rgba(255, 45, 120, 0.15);
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 1px;
+        }
+
+        .yes-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            animation: shimmer 2s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+
+        .yes-btn:hover {
+            transform: scale(1.1) translateY(-4px);
+            box-shadow: 0 16px 48px rgba(255, 45, 120, 0.5),
+                0 0 100px rgba(255, 45, 120, 0.25);
+        }
+
+        .no-btn {
+            padding: 14px 40px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            position: absolute;
+            user-select: none;
+        }
+
+        .no-btn:hover {
+            transform: scale(0.9);
+        }
+
+        /* ===== CELEBRATION SCREEN ===== */
+        #celebration-screen {
+            background: var(--bg-deep);
+            overflow: hidden;
+        }
+
+        .celebration-content {
+            text-align: center;
+            z-index: 5;
+            padding: 32px;
+        }
+
+        .celebration-hearts {
+            font-size: 80px;
+            margin-bottom: 24px;
+            animation: celebPulse 1s ease-in-out infinite;
+        }
+
+        @keyframes celebPulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        .celebration-title {
+            font-family: 'Great Vibes', cursive;
+            font-size: clamp(36px, 8vw, 60px);
+            background: linear-gradient(135deg, var(--gold), var(--pink-soft), #fff, var(--gold));
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 2s ease-in-out infinite;
+            margin-bottom: 24px;
+        }
+
+        .celebration-message {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 20px;
+            color: var(--text-accent);
+            line-height: 1.8;
+            max-width: 500px;
+            margin: 0 auto 20px;
+        }
+
+        .celebration-sign {
+            font-family: 'Dancing Script', cursive;
+            font-size: 28px;
+            color: var(--pink-soft);
+            margin-bottom: 32px;
         }
 
         .replay-btn {
@@ -547,6 +731,33 @@
             border-color: rgba(255, 107, 157, 0.5);
             transform: translateY(-2px);
             box-shadow: 0 8px 24px rgba(255, 107, 157, 0.15);
+        }
+
+        /* ===== FIREWORKS ===== */
+        .firework {
+            position: fixed;
+            pointer-events: none;
+            z-index: 50;
+        }
+
+        .firework-particle {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            animation: fireworkBurst 1.2s ease-out forwards;
+        }
+
+        @keyframes fireworkBurst {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translate(var(--fx), var(--fy)) scale(0);
+                opacity: 0;
+            }
         }
 
         /* ===== AMBIENT GLOW ===== */
@@ -596,27 +807,278 @@
             }
         }
 
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 600px) {
-            .memory-header {
-                padding: 16px 20px;
-            }
-
+        /* ===== RESPONSIVE — TABLETS ===== */
+        @media (max-width: 768px) {
             .photo-stage {
-                max-height: 55vh;
+                max-width: 420px;
+                max-height: 58vh;
             }
 
-            .photo-caption {
-                font-size: 22px;
+            .proposal-ring {
+                font-size: 80px;
+                margin-bottom: 16px;
             }
 
-            .quote-text {
-                font-size: 16px;
+            .proposal-message {
+                font-size: 15px;
+                margin-bottom: 36px;
+            }
+
+            .celebration-message {
+                font-size: 17px;
+            }
+
+            .celebration-hearts {
+                font-size: 60px;
+            }
+        }
+
+        /* ===== RESPONSIVE — PHONES ===== */
+        @media (max-width: 600px) {
+
+            html,
+            body {
+                /* Allow scrolling on proposal/celebration screens on mobile */
+                overflow-x: hidden;
+            }
+
+            /* Landing Screen */
+            .heart-icon {
+                font-size: 48px;
+                margin-bottom: 20px;
+            }
+
+            .landing-subtitle {
+                font-size: 18px;
+            }
+
+            .landing-title {
+                font-size: clamp(36px, 10vw, 56px);
             }
 
             .landing-description {
-                padding: 0 20px;
+                padding: 0 24px;
                 font-size: 14px;
+                margin-bottom: 36px;
+            }
+
+            .start-btn {
+                padding: 16px 40px;
+                font-size: 16px;
+            }
+
+            /* Memory Screen */
+            .memory-header {
+                padding: 12px 16px;
+            }
+
+            .memory-counter {
+                font-size: 13px;
+            }
+
+            #memory-screen {
+                padding: 12px;
+            }
+
+            .photo-stage {
+                max-width: 100%;
+                max-height: 52vh;
+                aspect-ratio: auto;
+                width: calc(100vw - 24px);
+                height: 52vh;
+            }
+
+            .photo-card {
+                border-radius: 16px;
+            }
+
+            .photo-overlay {
+                padding: 40px 20px 20px;
+            }
+
+            .photo-caption {
+                font-size: 20px;
+                line-height: 1.3;
+            }
+
+            .photo-date {
+                font-size: 12px;
+            }
+
+            .quote-section {
+                margin-top: 16px;
+                padding: 0 16px;
+                min-height: 50px;
+            }
+
+            .quote-text {
+                font-size: 14px;
+                line-height: 1.5;
+            }
+
+            .next-btn {
+                margin-top: 16px;
+                padding: 12px 28px;
+                font-size: 14px;
+            }
+
+            /* Hide keyboard hint on mobile */
+            .keyboard-hint {
+                display: none;
+            }
+
+            /* Proposal Screen — CRITICAL for mobile */
+            #proposal-screen {
+                overflow-y: auto;
+                overflow-x: hidden;
+                align-items: flex-start;
+                justify-content: flex-start;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .proposal-content {
+                padding: 20px 20px 100px;
+                max-width: 100%;
+                margin-top: 20px;
+            }
+
+            .proposal-ring {
+                font-size: 64px;
+                margin-bottom: 12px;
+            }
+
+            .proposal-pretext {
+                font-size: 18px;
+                margin-bottom: 12px;
+                padding: 0 8px;
+            }
+
+            .proposal-question {
+                font-size: clamp(32px, 9vw, 48px);
+                margin-bottom: 16px;
+            }
+
+            .proposal-message {
+                font-size: 14px;
+                line-height: 1.7;
+                margin-bottom: 32px;
+                padding: 0 8px;
+            }
+
+            .proposal-buttons {
+                flex-direction: column;
+                gap: 16px;
+                min-height: 120px;
+            }
+
+            .yes-btn {
+                padding: 18px 56px;
+                font-size: 24px;
+                width: auto;
+            }
+
+            .no-btn {
+                padding: 12px 32px;
+                font-size: 14px;
+            }
+
+            /* Celebration Screen */
+            #celebration-screen {
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .celebration-content {
+                padding: 24px 20px 60px;
+            }
+
+            .celebration-hearts {
+                font-size: 50px;
+                margin-bottom: 16px;
+            }
+
+            .celebration-title {
+                font-size: clamp(28px, 8vw, 48px);
+                margin-bottom: 16px;
+            }
+
+            .celebration-message {
+                font-size: 15px;
+                line-height: 1.7;
+                padding: 0 8px;
+            }
+
+            .celebration-sign {
+                font-size: 22px;
+                margin-bottom: 24px;
+            }
+
+            .replay-btn {
+                padding: 12px 28px;
+                font-size: 14px;
+            }
+
+            /* Ambient glows smaller on mobile */
+            .ambient-glow {
+                width: 200px;
+                height: 200px;
+                filter: blur(60px);
+            }
+        }
+
+        /* ===== RESPONSIVE — VERY SMALL PHONES ===== */
+        @media (max-width: 380px) {
+            .landing-title {
+                font-size: 32px;
+            }
+
+            .photo-stage {
+                height: 48vh;
+                max-height: 48vh;
+            }
+
+            .photo-caption {
+                font-size: 18px;
+            }
+
+            .quote-text {
+                font-size: 13px;
+            }
+
+            .proposal-ring {
+                font-size: 52px;
+            }
+
+            .proposal-question {
+                font-size: 28px;
+            }
+
+            .proposal-message {
+                font-size: 13px;
+            }
+
+            .yes-btn {
+                padding: 16px 44px;
+                font-size: 22px;
+            }
+
+            .celebration-hearts {
+                font-size: 40px;
+            }
+        }
+
+        /* ===== SAFE AREA (NOTCHED PHONES) ===== */
+        @supports (padding: env(safe-area-inset-top)) {
+            .memory-header {
+                padding-top: max(20px, env(safe-area-inset-top));
+            }
+
+            .progress-bar {
+                padding-bottom: env(safe-area-inset-bottom);
+            }
+
+            .proposal-content {
+                padding-bottom: max(100px, calc(env(safe-area-inset-bottom) + 80px));
             }
         }
 
@@ -640,6 +1102,46 @@
             font-family: 'Inter', sans-serif;
             font-size: 11px;
         }
+
+        /* ===== RING RAIN ===== */
+        .ring-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 3;
+            overflow: hidden;
+        }
+
+        .falling-ring {
+            position: absolute;
+            top: -50px;
+            font-size: 24px;
+            opacity: 0;
+            animation: ringFall linear infinite;
+        }
+
+        @keyframes ringFall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.6;
+            }
+
+            90% {
+                opacity: 0.3;
+            }
+
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 
@@ -656,14 +1158,14 @@
     <div class="screen" id="landing-screen">
         <div class="landing-content">
             <div class="heart-icon">💖</div>
-            <p class="landing-subtitle">a little something special</p>
-            <h1 class="landing-title">For You</h1>
+            <p class="landing-subtitle">my heart wrote this for you</p>
+            <h1 class="landing-title">Our Story</h1>
             <p class="landing-description">
-                Every moment with you is a memory I treasure forever.
-                Click below to relive the beautiful moments. ✨
+                Every love story is beautiful, but ours is the one I want to tell forever.
+                Come, let me take you on a journey through us. ✨
             </p>
             <button class="start-btn" id="start-btn" onclick="startMemories()">
-                Open Your Memories
+                Begin Our Journey
                 <span>💝</span>
             </button>
         </div>
@@ -673,9 +1175,8 @@
     <div class="screen hidden" id="memory-screen">
         <div class="memory-header">
             <div class="memory-counter">
-                Memory <span id="current-index">1</span> of <span id="total-count">21</span>
+                <span id="current-index">1</span> · <span id="total-count">21</span>
             </div>
-            <button class="shuffle-btn" onclick="shuffleMemories()">🔀 Shuffle</button>
         </div>
 
         <div class="photo-stage" id="photo-stage">
@@ -699,187 +1200,199 @@
         </div>
     </div>
 
-    <!-- ===== FINAL SCREEN ===== -->
-    <div class="screen hidden" id="final-screen">
-        <div class="final-content">
-            <div class="final-heart">💗</div>
-            <h2 class="final-title">You Make Every Moment Beautiful</h2>
-            <p class="final-message">
-                "Every time I see you, I fall in love all over again.
-                These moments are just a tiny glimpse of how special you are to me.
-                You deserve the world, and I'll spend every day trying to give it to you."
+    <!-- ===== PROPOSAL SCREEN ===== -->
+    <div class="screen hidden" id="proposal-screen">
+        <div class="ring-rain" id="ring-rain"></div>
+        <div class="proposal-content">
+            <div class="proposal-ring">💍</div>
+            <p class="proposal-pretext">I've been carrying this question in my heart for so long...</p>
+            <h2 class="proposal-question">Will You Marry Me?</h2>
+            <p class="proposal-message">
+                "From the first moment I saw you, I knew my heart had found its home.
+                Every laugh, every tear, every quiet moment — I want them all with you.
+                You are my forever, and I want to spend every sunrise and every sunset by your side."
             </p>
-            <p class="final-message"
-                style="font-family: 'Dancing Script', cursive; font-size: 24px; color: var(--pink-soft);">
-                — Forever Yours ❤️
+            <div class="proposal-buttons" id="proposal-buttons">
+                <button class="yes-btn" id="yes-btn" onclick="sayYes()">💍 Yes, Forever! 💍</button>
+                <button class="no-btn" id="no-btn">Not yet...</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== CELEBRATION SCREEN ===== -->
+    <div class="screen hidden" id="celebration-screen">
+        <div class="celebration-content">
+            <div class="celebration-hearts">💕👩‍❤️‍👨💕</div>
+            <h2 class="celebration-title">She Said Yes!</h2>
+            <p class="celebration-message">
+                "I promise to love you in your good days and bad, to hold your hand through every storm,
+                to be your best friend, your partner, your everything. This is just the beginning of our forever."
             </p>
+            <p class="celebration-sign">— Yours, now and always ❤️</p>
             <button class="replay-btn" onclick="replayMemories()">
-                🔄 Relive Again
+                🔄 Relive Our Story
             </button>
         </div>
     </div>
 
     <script>
         // ===================================================================
-        // 📸 CONFIGURE YOUR MEMORIES HERE!
+        // 💍 MEMORIES — A LOVE STORY IN SEQUENCE
         // ===================================================================
-        // Replace these with your girlfriend's actual photos and captions.
-        // Just put her pics in the "images/" folder and update the paths below.
-        //
-        // Each memory object has:
-        //   - image: path to the photo file
-        //   - caption: a sweet caption (use something personal!)
-        //   - date: optional date or location text
-        //   - quote: a love quote that appears below the photo
+        // Photos arranged to tell a story: from everyday moments to the
+        // deepest feelings, building up to the big question.
         // ===================================================================
 
         const memories = [
+            // ── ACT 1: THE SPARK — Everyday Magic ──
+            {
+                image: "images/cozy-smile.jpeg",
+                caption: "It all started with that smile",
+                date: "Where it all began 💫",
+                quote: "\"The moment I saw you smile, I knew the rest of my life had just begun.\""
+            },
+            {
+                image: "images/ukulele-serenade.jpeg",
+                caption: "You played the strings of my heart",
+                date: "Our little world of melodies 🎵",
+                quote: "\"If music be the food of love, play on — because my heart only beats for you.\""
+            },
+            {
+                image: "images/ukulele-melody.jpeg",
+                caption: "Every note you play sounds like 'I love you'",
+                date: "The sweetest serenade 🎶",
+                quote: "\"You are the song I never knew I needed, the melody I can't live without.\""
+            },
+
+            // ── ACT 2: FALLING DEEPER — The Dates ──
+            {
+                image: "images/cocktail-moment.jpeg",
+                caption: "Lost in you, found in us",
+                date: "Our cozy little corner 🍸",
+                quote: "\"Sitting across from you, I realized the best view isn't outside — it's right in front of me.\""
+            },
+            {
+                image: "images/cafe-night.jpeg",
+                caption: "Even the night lit up when you walked in",
+                date: "The night I fell harder 🌃",
+                quote: "\"Some people make the world more beautiful just by being in it — you're one of them.\""
+            },
+            {
+                image: "images/fairy-lights.jpeg",
+                caption: "A thousand fairy lights, and I still only see you",
+                date: "An enchanted evening ✨",
+                quote: "\"She had that kind of magic that made everything around her more alive.\""
+            },
+
+            // ── ACT 3: OUR WORLD — Adventures Together ──
+            {
+                image: "images/mall-elegance.jpeg",
+                caption: "The whole world fades when you're near",
+                date: "Every moment, effortlessly beautiful 🤍",
+                quote: "\"I looked at her and for a moment it wasn't the lights shining — it was her.\""
+            },
+            {
+                image: "images/zara-queen.jpeg",
+                caption: "My queen, my heart, my everything",
+                date: "Stolen glances & forever feelings 👑",
+                quote: "\"Every love story is beautiful, but ours is the one I'll tell forever.\""
+            },
+            {
+                image: "images/vr-adventure.jpeg",
+                caption: "The greatest adventure? Life with you",
+                date: "Partners in every universe 🎢",
+                quote: "\"You're my greatest adventure and my safest place to land.\""
+            },
+            {
+                image: "images/christmas-sparkle.jpeg",
+                caption: "Every Christmas wish was always just you",
+                date: "All I want, in every season 🎄",
+                quote: "\"I don't need presents under the tree — I have you, and that's everything.\""
+            },
+
+            // ── ACT 4: GOLDEN MOMENTS — When I Knew ──
             {
                 image: "images/photo1.png",
-                caption: "The way the sunset wishes it looked like you",
-                date: "That golden evening ✨",
+                caption: "Even sunsets are jealous of your glow",
+                date: "That golden evening that changed me ✨",
                 quote: "\"You are the finest, loveliest, tenderest person I have ever known.\""
             },
             {
-                image: "images/photo2.png",
-                caption: "Your smile lights up every room",
-                date: "A night to remember 🌙",
-                quote: "\"In all the world, there is no heart for me like yours.\""
-            },
-            {
-                image: "images/photo3.png",
-                caption: "You're my favorite adventure",
-                date: "Under the stars 🌟",
-                quote: "\"I saw that you were perfect, and so I loved you. Then I saw that you were not perfect, and I loved you even more.\""
-            },
-            {
-                image: "images/photo4.png",
-                caption: "Every moment with you is magic",
-                date: "Spring dreams 🌸",
-                quote: "\"Whatever our souls are made of, yours and mine are the same.\""
+                image: "images/sunshine-walk.jpeg",
+                caption: "Walking through flowers, but only seeing you",
+                date: "Sunshine looks better on you 🌸",
+                quote: "\"You are the sun in my day, the wind in my sky, the waves in my ocean.\""
             },
             {
                 image: "images/candlelight-glow.jpeg",
-                caption: "You glow brighter than every candle in the room",
+                caption: "You glow brighter than a thousand candles",
                 date: "A warm, golden evening 🕯️",
                 quote: "\"She was the kind of beautiful that made the stars wonder if the sky was enough.\""
             },
             {
-                image: "images/mall-elegance.jpeg",
-                caption: "The whole world stopped when you smiled",
-                date: "Effortlessly stunning 🤍",
-                quote: "\"I looked at her and for a moment it wasn't the lights shining — it was her.\""
-            },
-            {
-                image: "images/cafe-night.jpeg",
-                caption: "Even the city lights are jealous of your spark",
-                date: "Night out together 🌃",
-                quote: "\"Some people make the world more beautiful just by being in it.\""
-            },
-            {
-                image: "images/city-lights.jpeg",
-                caption: "Outshining every neon light in the city",
-                date: "That perfect night out 💫",
-                quote: "\"I'd choose you in a hundred lifetimes, in a hundred worlds, in any version of reality.\""
-            },
-            {
-                image: "images/cocktail-moment.jpeg",
-                caption: "Life's sweetest when I'm sitting across from you",
-                date: "Our little garden café 🍸",
-                quote: "\"You are my today and all of my tomorrows.\""
-            },
-            {
-                image: "images/zara-queen.jpeg",
-                caption: "My queen doesn't need a crown, she's already royalty",
-                date: "Shopping sprees & stolen glances 👑",
-                quote: "\"Every love story is beautiful, but ours is my favorite.\""
-            },
-            {
-                image: "images/ukulele-serenade.jpeg",
-                caption: "When she plays, my heart writes the lyrics",
-                date: "Cozy nights & soft melodies 🎵",
-                quote: "\"If music be the food of love, play on.\""
-            },
-            {
-                image: "images/ukulele-melody.jpeg",
-                caption: "The most beautiful melody I've ever heard",
-                date: "Her little concert for two 🎶",
-                quote: "\"You are the song I never knew I needed, but now can't live without.\""
-            },
-            {
-                image: "images/christmas-sparkle.jpeg",
-                caption: "My only wish every Christmas — is you",
-                date: "Merry everything with you 🎄",
-                quote: "\"All I want for Christmas is you, and every day after that.\""
-            },
-            {
-                image: "images/fairy-lights.jpeg",
-                caption: "Fairy lights have nothing on the way your eyes shine",
-                date: "An enchanted evening ✨",
-                quote: "\"She had that kind of magic that made everything around her more alive.\""
-            },
-            {
                 image: "images/balcony-breeze.jpeg",
-                caption: "Even the breeze pauses to admire you",
-                date: "Balcony daydreams 🌿",
+                caption: "Even the wind pauses just to admire you",
+                date: "Stolen moments on the balcony 🌿",
                 quote: "\"You are the answer to every prayer my heart has ever whispered.\""
             },
             {
                 image: "images/golden-hour.jpeg",
-                caption: "You make golden hour look ordinary",
-                date: "Sunlit & stunning 🌤️",
+                caption: "Golden hour has nothing on you",
+                date: "You make every hour golden 🌤️",
                 quote: "\"In a sea of people, my eyes will always search only for you.\""
             },
+
+            // ── ACT 5: FALLING FOREVER — The Deep Feelings ──
             {
-                image: "images/vr-adventure.jpeg",
-                caption: "My favorite thrill ride is life with you",
-                date: "Adventures & laughter 🎢",
-                quote: "\"You're my greatest adventure and my safest home.\""
+                image: "images/photo2.png",
+                caption: "Your smile is my whole universe",
+                date: "The night I knew you were forever 🌙",
+                quote: "\"In all the world, there is no heart for me like yours.\""
+            },
+            {
+                image: "images/city-lights.jpeg",
+                caption: "You outshine every light in this city",
+                date: "My kind of perfect night out 💫",
+                quote: "\"I'd choose you in a hundred lifetimes, in a hundred worlds, in any version of reality.\""
             },
             {
                 image: "images/night-out.jpeg",
                 caption: "She carries starlight wherever she goes",
-                date: "Night under the city sky 🌙",
-                quote: "\"You don't need the moonlight, darling, you already glow.\""
+                date: "Under the city sky 🌙",
+                quote: "\"You don't need the moonlight, darling — you already glow.\""
             },
             {
-                image: "images/cozy-smile.jpeg",
-                caption: "That smile? Yeah, it healed everything",
-                date: "Just you, just perfect 💚",
-                quote: "\"Home is not a place, it's a feeling — and you are mine.\""
+                image: "images/photo3.png",
+                caption: "With you, every moment is a dream",
+                date: "My favorite person in every room 🌟",
+                quote: "\"I saw that you were perfect, and I loved you. Then I saw you were not perfect, and I loved you even more.\""
             },
             {
-                image: "images/sunshine-walk.jpeg",
-                caption: "Walking through flowers, but I only see you",
-                date: "Sunshine & you 🌸",
-                quote: "\"You are the sun in my day, the wind in my sky, the waves in my ocean.\""
+                image: "images/photo4.png",
+                caption: "Every heartbeat spells your name",
+                date: "Always and only you 🌸",
+                quote: "\"Whatever our souls are made of, yours and mine are the same.\""
             },
+
+            // ── ACT 6: THE CRESCENDO — Before the Question ──
             {
                 image: "images/roses-birthday.jpeg",
-                caption: "Roses wish they were as beautiful as you",
-                date: "Happy Birthday, my love 🌹",
-                quote: "\"I didn't know what forever meant until I met you.\""
+                caption: "You deserve every flower the world has to offer",
+                date: "The most beautiful soul I know 🌹",
+                quote: "\"I didn't know what forever meant until I met you — now I never want it to end.\""
             },
         ];
-
-        // ===================================================================
-        // 💌 CUSTOMIZE THE FINAL MESSAGE
-        // ===================================================================
-        // Edit the final message in the HTML above (inside #final-screen)
-        // to write your own personal love letter!
-        // ===================================================================
 
 
         // ===== APP STATE =====
         let currentIndex = 0;
-        let memoryOrder = [];
         let isTransitioning = false;
 
         // ===== INITIALIZE =====
         function init() {
-            memoryOrder = memories.map((_, i) => i);
             document.getElementById('total-count').textContent = memories.length;
             createFloatingHearts();
+            setupNoButton();
         }
 
         // ===== FLOATING HEARTS =====
@@ -896,6 +1409,22 @@
                 heart.style.animationDelay = (Math.random() * 15) + 's';
                 heart.style.fontSize = (14 + Math.random() * 16) + 'px';
                 container.appendChild(heart);
+            }
+        }
+
+        // ===== FALLING RINGS FOR PROPOSAL =====
+        function createFallingRings() {
+            const container = document.getElementById('ring-rain');
+            const items = ['💍', '💎', '✨', '💖', '🤍', '💫'];
+            for (let i = 0; i < 25; i++) {
+                const ring = document.createElement('div');
+                ring.className = 'falling-ring';
+                ring.textContent = items[Math.floor(Math.random() * items.length)];
+                ring.style.left = Math.random() * 100 + '%';
+                ring.style.animationDuration = (6 + Math.random() * 10) + 's';
+                ring.style.animationDelay = (Math.random() * 8) + 's';
+                ring.style.fontSize = (16 + Math.random() * 20) + 'px';
+                container.appendChild(ring);
             }
         }
 
@@ -939,8 +1468,7 @@
 
             const stage = document.getElementById('photo-stage');
             const quoteSection = document.getElementById('quote-section');
-            const memoryIndex = memoryOrder[index];
-            const memory = memories[memoryIndex];
+            const memory = memories[index];
 
             // Update counter
             document.getElementById('current-index').textContent = index + 1;
@@ -976,7 +1504,7 @@
                 // Update next button text
                 const nextBtn = document.getElementById('next-btn');
                 if (index === memories.length - 1) {
-                    nextBtn.innerHTML = 'See Final Message <span class="arrow">💌</span>';
+                    nextBtn.innerHTML = 'I Have Something to Ask You <span class="arrow">💌</span>';
                 } else {
                     nextBtn.innerHTML = 'Next Memory <span class="arrow">→</span>';
                 }
@@ -992,8 +1520,7 @@
             if (event) createSparkles(event.clientX, event.clientY);
 
             if (currentIndex >= memories.length - 1) {
-                // Show final screen
-                showFinalScreen();
+                showProposal();
                 return;
             }
 
@@ -1001,40 +1528,169 @@
             showMemory(currentIndex);
         }
 
-        // ===== SHOW FINAL SCREEN =====
-        function showFinalScreen() {
+        // ===== SHOW PROPOSAL SCREEN =====
+        function showProposal() {
             const memoryScreen = document.getElementById('memory-screen');
-            const finalScreen = document.getElementById('final-screen');
+            const proposalScreen = document.getElementById('proposal-screen');
 
             memoryScreen.classList.add('hidden');
 
             setTimeout(() => {
-                finalScreen.classList.remove('hidden');
+                proposalScreen.classList.remove('hidden');
+                createFallingRings();
             }, 400);
         }
 
-        // ===== SHUFFLE =====
-        function shuffleMemories() {
-            // Fisher-Yates shuffle
-            for (let i = memoryOrder.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [memoryOrder[i], memoryOrder[j]] = [memoryOrder[j], memoryOrder[i]];
+        // ===== SETUP THE UNCATCHABLE NO BUTTON =====
+        function setupNoButton() {
+            const noBtn = document.getElementById('no-btn');
+            const messages = [
+                "Nope! Try again 😏",
+                "Haha, not happening! 💕",
+                "You sure? 😘",
+                "Think again, love! 🥰",
+                "Wrong button, baby! 💖",
+                "That's not what your heart says! 😍",
+                "Oops, missed! 💗",
+                "Nice try hehe! 😂❤️",
+                "I know you want to say yes! 💍",
+                "Come on, you know the answer! 🤭",
+                "Almost... just click the other one! 😉",
+                "Your heart says otherwise! 💓",
+            ];
+            let msgIndex = 0;
+
+            function moveNoButton() {
+                // Get viewport dimensions
+                const vw = window.innerWidth;
+                const vh = window.innerHeight;
+
+                // Calculate random position within safe viewport area
+                const btnWidth = noBtn.offsetWidth || 140;
+                const btnHeight = noBtn.offsetHeight || 48;
+                const safePadding = 30; // Extra padding for notches/status bars
+
+                const maxX = vw - btnWidth - safePadding;
+                const maxY = vh - btnHeight - safePadding;
+
+                const randomX = safePadding + Math.random() * Math.max(0, maxX - safePadding);
+                const randomY = safePadding + Math.random() * Math.max(0, maxY - safePadding);
+
+                noBtn.style.position = 'fixed';
+                noBtn.style.left = randomX + 'px';
+                noBtn.style.top = randomY + 'px';
+                noBtn.style.zIndex = '999';
+
+                // Change text
+                noBtn.textContent = messages[msgIndex % messages.length];
+                msgIndex++;
+
+                // Make the yes button slightly bigger each time (gentler on mobile)
+                const yesBtn = document.getElementById('yes-btn');
+                const currentSize = parseFloat(getComputedStyle(yesBtn).fontSize);
+                const isMobile = vw <= 600;
+                const maxSize = isMobile ? 30 : 36;
+                if (currentSize < maxSize) {
+                    yesBtn.style.fontSize = (currentSize + 0.5) + 'px';
+                    if (!isMobile) {
+                        yesBtn.style.padding = '22px 72px';
+                    }
+                }
             }
-            currentIndex = 0;
-            showMemory(currentIndex, true);
+
+            // Mouse hover (desktop)
+            noBtn.addEventListener('mouseenter', moveNoButton);
+            // Touch devices — use passive: false to prevent scroll issues
+            noBtn.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                moveNoButton();
+            }, { passive: false });
+            // Click also moves it
+            noBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                moveNoButton();
+            });
+        }
+
+        // ===== SHE SAID YES! =====
+        function sayYes() {
+            const proposalScreen = document.getElementById('proposal-screen');
+            const celebrationScreen = document.getElementById('celebration-screen');
+
+            // Massive sparkle burst
+            for (let i = 0; i < 8; i++) {
+                setTimeout(() => {
+                    createSparkles(
+                        window.innerWidth * Math.random(),
+                        window.innerHeight * Math.random()
+                    );
+                }, i * 150);
+            }
+
+            proposalScreen.classList.add('hidden');
+
+            setTimeout(() => {
+                celebrationScreen.classList.remove('hidden');
+                launchFireworks();
+            }, 500);
+        }
+
+        // ===== FIREWORKS =====
+        function launchFireworks() {
+            const colors = ['#ff6b9d', '#f4c542', '#b388ff', '#ff2d78', '#7c4dff', '#fff', '#e91e63'];
+
+            function createFirework() {
+                const x = Math.random() * window.innerWidth;
+                const y = Math.random() * (window.innerHeight * 0.6);
+                const container = document.createElement('div');
+                container.className = 'firework';
+                container.style.left = x + 'px';
+                container.style.top = y + 'px';
+
+                for (let i = 0; i < 30; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'firework-particle';
+                    const angle = (Math.PI * 2 / 30) * i;
+                    const dist = 50 + Math.random() * 100;
+                    particle.style.setProperty('--fx', Math.cos(angle) * dist + 'px');
+                    particle.style.setProperty('--fy', Math.sin(angle) * dist + 'px');
+                    particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    particle.style.width = (3 + Math.random() * 5) + 'px';
+                    particle.style.height = particle.style.width;
+                    container.appendChild(particle);
+                }
+
+                document.body.appendChild(container);
+                setTimeout(() => container.remove(), 1500);
+            }
+
+            // Launch multiple waves of fireworks
+            for (let wave = 0; wave < 20; wave++) {
+                setTimeout(() => {
+                    createFirework();
+                    createFirework();
+                }, wave * 500);
+            }
+
+            // Continue slower fireworks
+            setInterval(() => {
+                createFirework();
+            }, 2000);
         }
 
         // ===== REPLAY =====
         function replayMemories() {
-            const finalScreen = document.getElementById('final-screen');
+            const celebrationScreen = document.getElementById('celebration-screen');
             const memoryScreen = document.getElementById('memory-screen');
 
-            finalScreen.classList.add('hidden');
+            celebrationScreen.classList.add('hidden');
 
             setTimeout(() => {
                 currentIndex = 0;
-                shuffleMemories();
                 memoryScreen.classList.remove('hidden');
+                showMemory(0, true);
             }, 400);
         }
 
