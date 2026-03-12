@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For You ❤️</title>
     <meta name="description" content="A special collection of memories, just for you.">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500&family=Dancing+Script:wght@400;700&display=swap"
+        rel="stylesheet">
     <style>
         /* ===== RESET & BASE ===== */
-        *, *::before, *::after {
+        *,
+        *::before,
+        *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -28,7 +33,8 @@
             --text-accent: #ffcdd2;
         }
 
-        html, body {
+        html,
+        body {
             height: 100%;
             overflow: hidden;
             font-family: 'Inter', sans-serif;
@@ -62,12 +68,15 @@
                 transform: translateY(0) rotate(0deg) scale(0.5);
                 opacity: 0;
             }
+
             10% {
                 opacity: 0.7;
             }
+
             90% {
                 opacity: 0.3;
             }
+
             100% {
                 transform: translateY(-110vh) rotate(720deg) scale(1);
                 opacity: 0;
@@ -91,6 +100,7 @@
                 transform: scale(1) translate(0, 0);
                 opacity: 1;
             }
+
             100% {
                 transform: scale(0) translate(var(--tx), var(--ty));
                 opacity: 0;
@@ -108,8 +118,8 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), 
-                        transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
             z-index: 1;
         }
 
@@ -122,8 +132,8 @@
         /* ===== LANDING SCREEN ===== */
         #landing-screen {
             background: radial-gradient(ellipse at 30% 50%, rgba(233, 30, 99, 0.12) 0%, transparent 60%),
-                        radial-gradient(ellipse at 70% 50%, rgba(123, 77, 255, 0.1) 0%, transparent 60%),
-                        var(--bg-deep);
+                radial-gradient(ellipse at 70% 50%, rgba(123, 77, 255, 0.1) 0%, transparent 60%),
+                var(--bg-deep);
         }
 
         .landing-content {
@@ -140,10 +150,23 @@
         }
 
         @keyframes heartbeat {
-            0%, 100% { transform: scale(1); }
-            15% { transform: scale(1.15); }
-            30% { transform: scale(1); }
-            45% { transform: scale(1.1); }
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            15% {
+                transform: scale(1.15);
+            }
+
+            30% {
+                transform: scale(1);
+            }
+
+            45% {
+                transform: scale(1.1);
+            }
         }
 
         .landing-subtitle {
@@ -172,8 +195,15 @@
         }
 
         @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
         }
 
         .landing-description {
@@ -191,6 +221,7 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -214,7 +245,7 @@
             letter-spacing: 0.5px;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 8px 32px rgba(255, 45, 120, 0.3),
-                        0 0 80px rgba(255, 45, 120, 0.1);
+                0 0 80px rgba(255, 45, 120, 0.1);
             opacity: 0;
             animation: fadeSlideUp 1s ease-out 0.9s forwards;
             overflow: hidden;
@@ -227,14 +258,14 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: left 0.6s ease;
         }
 
         .start-btn:hover {
             transform: translateY(-3px) scale(1.03);
             box-shadow: 0 12px 48px rgba(255, 45, 120, 0.45),
-                        0 0 120px rgba(255, 45, 120, 0.15);
+                0 0 120px rgba(255, 45, 120, 0.15);
         }
 
         .start-btn:hover::before {
@@ -314,7 +345,7 @@
             overflow: hidden;
             background: var(--bg-card);
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5),
-                        0 0 40px rgba(255, 45, 120, 0.08);
+                0 0 40px rgba(255, 45, 120, 0.08);
             border: 1px solid rgba(255, 255, 255, 0.08);
             transform-style: preserve-3d;
             transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
@@ -333,6 +364,7 @@
                 opacity: 0;
                 transform: scale(0.8) rotateY(-15deg) translateX(60px);
             }
+
             to {
                 opacity: 1;
                 transform: scale(1) rotateY(0) translateX(0);
@@ -344,6 +376,7 @@
                 opacity: 1;
                 transform: scale(1) rotateY(0) translateX(0);
             }
+
             to {
                 opacity: 0;
                 transform: scale(0.85) rotateY(15deg) translateX(-80px);
@@ -458,7 +491,7 @@
         /* ===== FINAL SCREEN ===== */
         #final-screen {
             background: radial-gradient(ellipse at 50% 50%, rgba(233, 30, 99, 0.15) 0%, transparent 60%),
-                        var(--bg-deep);
+                var(--bg-deep);
         }
 
         .final-content {
@@ -544,13 +577,23 @@
         }
 
         @keyframes glowDrift1 {
-            from { transform: translate(0, 0); }
-            to { transform: translate(-50px, 50px); }
+            from {
+                transform: translate(0, 0);
+            }
+
+            to {
+                transform: translate(-50px, 50px);
+            }
         }
 
         @keyframes glowDrift2 {
-            from { transform: translate(0, 0); }
-            to { transform: translate(50px, -50px); }
+            from {
+                transform: translate(0, 0);
+            }
+
+            to {
+                transform: translate(50px, -50px);
+            }
         }
 
         /* ===== RESPONSIVE ===== */
@@ -558,15 +601,19 @@
             .memory-header {
                 padding: 16px 20px;
             }
+
             .photo-stage {
                 max-height: 55vh;
             }
+
             .photo-caption {
                 font-size: 22px;
             }
+
             .quote-text {
                 font-size: 16px;
             }
+
             .landing-description {
                 padding: 0 20px;
                 font-size: 14px;
@@ -586,15 +633,16 @@
         }
 
         .keyboard-hint kbd {
-            background: rgba(255,255,255,0.08);
+            background: rgba(255, 255, 255, 0.08);
             padding: 3px 8px;
             border-radius: 4px;
-            border: 1px solid rgba(255,255,255,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             font-family: 'Inter', sans-serif;
             font-size: 11px;
         }
     </style>
 </head>
+
 <body>
 
     <!-- Ambient Background Glows -->
@@ -611,7 +659,7 @@
             <p class="landing-subtitle">a little something special</p>
             <h1 class="landing-title">For You</h1>
             <p class="landing-description">
-                Every moment with you is a memory I treasure forever. 
+                Every moment with you is a memory I treasure forever.
                 Click below to relive the beautiful moments. ✨
             </p>
             <button class="start-btn" id="start-btn" onclick="startMemories()">
@@ -625,7 +673,7 @@
     <div class="screen hidden" id="memory-screen">
         <div class="memory-header">
             <div class="memory-counter">
-                Memory <span id="current-index">1</span> of <span id="total-count">6</span>
+                Memory <span id="current-index">1</span> of <span id="total-count">21</span>
             </div>
             <button class="shuffle-btn" onclick="shuffleMemories()">🔀 Shuffle</button>
         </div>
@@ -657,11 +705,12 @@
             <div class="final-heart">💗</div>
             <h2 class="final-title">You Make Every Moment Beautiful</h2>
             <p class="final-message">
-                "Every time I see you, I fall in love all over again. 
-                These moments are just a tiny glimpse of how special you are to me. 
+                "Every time I see you, I fall in love all over again.
+                These moments are just a tiny glimpse of how special you are to me.
                 You deserve the world, and I'll spend every day trying to give it to you."
             </p>
-            <p class="final-message" style="font-family: 'Dancing Script', cursive; font-size: 24px; color: var(--pink-soft);">
+            <p class="final-message"
+                style="font-family: 'Dancing Script', cursive; font-size: 24px; color: var(--pink-soft);">
                 — Forever Yours ❤️
             </p>
             <button class="replay-btn" onclick="replayMemories()">
@@ -709,15 +758,108 @@
                 date: "Spring dreams 🌸",
                 quote: "\"Whatever our souls are made of, yours and mine are the same.\""
             },
-            // ============================================================
-            // ADD MORE MEMORIES BELOW! Just copy the template:
-            // ============================================================
-            // {
-            //     image: "images/photo5.png",
-            //     caption: "Your caption here",
-            //     date: "Date or location",
-            //     quote: "\"A beautiful love quote\""
-            // },
+            {
+                image: "images/candlelight-glow.jpeg",
+                caption: "You glow brighter than every candle in the room",
+                date: "A warm, golden evening 🕯️",
+                quote: "\"She was the kind of beautiful that made the stars wonder if the sky was enough.\""
+            },
+            {
+                image: "images/mall-elegance.jpeg",
+                caption: "The whole world stopped when you smiled",
+                date: "Effortlessly stunning 🤍",
+                quote: "\"I looked at her and for a moment it wasn't the lights shining — it was her.\""
+            },
+            {
+                image: "images/cafe-night.jpeg",
+                caption: "Even the city lights are jealous of your spark",
+                date: "Night out together 🌃",
+                quote: "\"Some people make the world more beautiful just by being in it.\""
+            },
+            {
+                image: "images/city-lights.jpeg",
+                caption: "Outshining every neon light in the city",
+                date: "That perfect night out 💫",
+                quote: "\"I'd choose you in a hundred lifetimes, in a hundred worlds, in any version of reality.\""
+            },
+            {
+                image: "images/cocktail-moment.jpeg",
+                caption: "Life's sweetest when I'm sitting across from you",
+                date: "Our little garden café 🍸",
+                quote: "\"You are my today and all of my tomorrows.\""
+            },
+            {
+                image: "images/zara-queen.jpeg",
+                caption: "My queen doesn't need a crown, she's already royalty",
+                date: "Shopping sprees & stolen glances 👑",
+                quote: "\"Every love story is beautiful, but ours is my favorite.\""
+            },
+            {
+                image: "images/ukulele-serenade.jpeg",
+                caption: "When she plays, my heart writes the lyrics",
+                date: "Cozy nights & soft melodies 🎵",
+                quote: "\"If music be the food of love, play on.\""
+            },
+            {
+                image: "images/ukulele-melody.jpeg",
+                caption: "The most beautiful melody I've ever heard",
+                date: "Her little concert for two 🎶",
+                quote: "\"You are the song I never knew I needed, but now can't live without.\""
+            },
+            {
+                image: "images/christmas-sparkle.jpeg",
+                caption: "My only wish every Christmas — is you",
+                date: "Merry everything with you 🎄",
+                quote: "\"All I want for Christmas is you, and every day after that.\""
+            },
+            {
+                image: "images/fairy-lights.jpeg",
+                caption: "Fairy lights have nothing on the way your eyes shine",
+                date: "An enchanted evening ✨",
+                quote: "\"She had that kind of magic that made everything around her more alive.\""
+            },
+            {
+                image: "images/balcony-breeze.jpeg",
+                caption: "Even the breeze pauses to admire you",
+                date: "Balcony daydreams 🌿",
+                quote: "\"You are the answer to every prayer my heart has ever whispered.\""
+            },
+            {
+                image: "images/golden-hour.jpeg",
+                caption: "You make golden hour look ordinary",
+                date: "Sunlit & stunning 🌤️",
+                quote: "\"In a sea of people, my eyes will always search only for you.\""
+            },
+            {
+                image: "images/vr-adventure.jpeg",
+                caption: "My favorite thrill ride is life with you",
+                date: "Adventures & laughter 🎢",
+                quote: "\"You're my greatest adventure and my safest home.\""
+            },
+            {
+                image: "images/night-out.jpeg",
+                caption: "She carries starlight wherever she goes",
+                date: "Night under the city sky 🌙",
+                quote: "\"You don't need the moonlight, darling, you already glow.\""
+            },
+            {
+                image: "images/cozy-smile.jpeg",
+                caption: "That smile? Yeah, it healed everything",
+                date: "Just you, just perfect 💚",
+                quote: "\"Home is not a place, it's a feeling — and you are mine.\""
+            },
+            {
+                image: "images/sunshine-walk.jpeg",
+                caption: "Walking through flowers, but I only see you",
+                date: "Sunshine & you 🌸",
+                quote: "\"You are the sun in my day, the wind in my sky, the waves in my ocean.\""
+            },
+            {
+                image: "images/roses-birthday.jpeg",
+                caption: "Roses wish they were as beautiful as you",
+                date: "Happy Birthday, my love 🌹",
+                quote: "\"I didn't know what forever meant until I met you.\""
+            },
         ];
 
         // ===================================================================
@@ -744,7 +886,7 @@
         function createFloatingHearts() {
             const container = document.getElementById('hearts-container');
             const hearts = ['💕', '💖', '✨', '💗', '💓', '🤍', '💜'];
-            
+
             for (let i = 0; i < 20; i++) {
                 const heart = document.createElement('div');
                 heart.className = 'floating-heart';
@@ -780,9 +922,9 @@
         function startMemories() {
             const landingScreen = document.getElementById('landing-screen');
             const memoryScreen = document.getElementById('memory-screen');
-            
+
             landingScreen.classList.add('hidden');
-            
+
             setTimeout(() => {
                 memoryScreen.classList.remove('hidden');
                 currentIndex = 0;
@@ -802,7 +944,7 @@
 
             // Update counter
             document.getElementById('current-index').textContent = index + 1;
-            
+
             // Update progress
             const progress = ((index + 1) / memories.length) * 100;
             document.getElementById('progress-fill').style.width = progress + '%';
@@ -848,13 +990,13 @@
         // ===== NEXT MEMORY =====
         function nextMemory(event) {
             if (event) createSparkles(event.clientX, event.clientY);
-            
+
             if (currentIndex >= memories.length - 1) {
                 // Show final screen
                 showFinalScreen();
                 return;
             }
-            
+
             currentIndex++;
             showMemory(currentIndex);
         }
@@ -863,9 +1005,9 @@
         function showFinalScreen() {
             const memoryScreen = document.getElementById('memory-screen');
             const finalScreen = document.getElementById('final-screen');
-            
+
             memoryScreen.classList.add('hidden');
-            
+
             setTimeout(() => {
                 finalScreen.classList.remove('hidden');
             }, 400);
@@ -886,9 +1028,9 @@
         function replayMemories() {
             const finalScreen = document.getElementById('final-screen');
             const memoryScreen = document.getElementById('memory-screen');
-            
+
             finalScreen.classList.add('hidden');
-            
+
             setTimeout(() => {
                 currentIndex = 0;
                 shuffleMemories();
@@ -900,10 +1042,10 @@
         document.addEventListener('keydown', (e) => {
             if (e.code === 'Space' || e.code === 'ArrowRight') {
                 e.preventDefault();
-                
+
                 const landingScreen = document.getElementById('landing-screen');
                 const memoryScreen = document.getElementById('memory-screen');
-                
+
                 if (!landingScreen.classList.contains('hidden')) {
                     startMemories();
                 } else if (!memoryScreen.classList.contains('hidden')) {
@@ -921,4 +1063,5 @@
         init();
     </script>
 </body>
+
 </html>
